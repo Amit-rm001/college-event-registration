@@ -13,8 +13,9 @@ function EditEvent() {
     location: ""
   });
 
+  // Fetch event
   useEffect(() => {
-    axios.get("http://localhost:5000/api/events")
+    axios.get("https://college-event-registration-s7os.onrender.com/api/events")
       .then(res => {
         const event = res.data.find(e => e._id === id);
         if (event) setForm(event);
@@ -30,7 +31,7 @@ function EditEvent() {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:5000/api/events/${id}`, form);
+      await axios.put(`https://college-event-registration-s7os.onrender.com/api/events/${id}`, form);
       alert("Event Updated ✅");
       navigate("/");
     } catch (err) {
@@ -59,4 +60,4 @@ function EditEvent() {
   );
 }
 
-export default EditEvent; // ✅ VERY IMPORTANT
+export default EditEvent;
